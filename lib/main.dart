@@ -1,10 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_application/ui/screens/home/home_screen.dart';
 import 'package:todo_application/ui/screens/splash/splash_screen.dart';
 import 'package:todo_application/utils/app_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseFirestore.instance.settings =
+      Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
+  await FirebaseFirestore.instance.disableNetwork();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
