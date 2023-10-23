@@ -4,7 +4,7 @@ class MyTextField extends StatelessWidget {
   String? hinttext;
   TextEditingController controller;
 
-  MyTextField({this.hinttext , required this.controller});
+  MyTextField({super.key, this.hinttext, required this.controller});
 
   @override
   Widget build(BuildContext context) {

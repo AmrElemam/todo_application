@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_application/ui/auth/register/register.dart';
 import 'package:todo_application/utils/app_colors.dart';
+
 import '../../../models/app_user.dart';
 import '../../../utils/dialog_utils.dart';
 import '../../screens/home/home_screen.dart';
@@ -10,7 +11,7 @@ import '../../screens/home/home_screen.dart';
 class LoginScreen extends StatefulWidget {
   static const routename = "login";
 
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();

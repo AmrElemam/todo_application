@@ -14,13 +14,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseFirestore.instance.settings =
-      Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
+      const Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
   //await FirebaseFirestore.instance.disableNetwork();
   runApp(ChangeNotifierProvider(
-    create: (_){
-      return ListProvider();
-    },
-    child: MyApp()));
+      create: (_) {
+        return ListProvider();
+      },
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -32,10 +32,10 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.LightTheme,
       darkTheme: AppTheme.DarkTheme,
       routes: {
-        HomeScreen.routename: (_) => HomeScreen(),
-        SplashScreen.routename: (_) => SplashScreen(),
-        LoginScreen.routename: (_) => LoginScreen(),
-        RegisterScreen.routename: (_) => RegisterScreen(),
+        HomeScreen.routename: (_) => const HomeScreen(),
+        SplashScreen.routename: (_) => const SplashScreen(),
+        LoginScreen.routename: (_) => const LoginScreen(),
+        RegisterScreen.routename: (_) => const RegisterScreen(),
       },
       initialRoute: SplashScreen.routename,
     );

@@ -5,6 +5,7 @@ import 'package:todo_application/ui/auth/login/login.dart';
 import 'package:todo_application/ui/providers/list_provider.dart';
 import 'package:todo_application/ui/screens/home/tabs/list_tab/list_tab.dart';
 import 'package:todo_application/ui/screens/home/tabs/settings_tab/settings_tab.dart';
+
 import '../../../bottom_sheets/add_bottom_sheet.dart';
 
 
@@ -28,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: buttonnavbarbuild(),
       floatingActionButton: fabbuild(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: currentSelectedTabIndex == 0 ? ListTab() : SettingsTab(),
+      body:
+          currentSelectedTabIndex == 0 ? const ListTab() : const SettingsTab(),
     );
   }
 
@@ -36,13 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
     title:  Text("Welcome ${AppUser.currentUser!.username}"),
     actions: [
       InkWell(
-        onTap: (){
-          AppUser.currentUser = null;
-          provider.todos.clear();
-          Navigator.pushReplacementNamed(context, LoginScreen.routename);
-        },
-        child: Icon(Icons.logout))
-    ],
+              onTap: () {
+                AppUser.currentUser = null;
+                provider.todos.clear();
+                Navigator.pushReplacementNamed(context, LoginScreen.routename);
+              },
+              child: const Icon(Icons.logout))
+        ],
     toolbarHeight: MediaQuery.of(context).size.height * .1,
   );
 

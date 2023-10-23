@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_application/models/app_user.dart';
@@ -28,7 +27,7 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
     provider = Provider.of(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height * .4,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -86,8 +85,7 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
         context: context,
         initialDate: selecteddate,
         firstDate: DateTime.now(),
-        lastDate: DateTime.now().add(Duration(days: 365))
-    )??selecteddate;
+        lastDate: DateTime.now().add(const Duration(days: 365)))??selecteddate;
     setState(() {});
   }
 }

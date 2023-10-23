@@ -12,6 +12,8 @@ import '../../../utils/app_colors.dart';
 class RegisterScreen extends StatefulWidget {
   static const routename = "register";
 
+  const RegisterScreen({super.key});
+
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
